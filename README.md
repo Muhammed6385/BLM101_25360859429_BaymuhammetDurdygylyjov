@@ -1,10 +1,11 @@
 # BLM101_25360859429_BaymuhammetDurdygylyjov
-Ad:Baymuhammet 
+Ad: Baymuhammet 
 
-Soyad:Durdygylyjov 
+Soyad: Durdygylyjov 
 
-Ogrenci kimlik:25360859429 
+Ogrenci No: 25360859429 
+-------------------------------------
 
-Aglar, Internet ve HTML 
+Proje konusu: Aglar, Internet ve HTML 
 youtublink
 projeacklama
