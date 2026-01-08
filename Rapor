@@ -1,1 +1,106 @@
+Fizik Deneyleri Konsol Uygulaması Raporu
+Ad.Soyad: Baymuhammet Durdygylyjov
+Ogrenci No: 25360859429
+Bu proje bireysel olarak geliştirilmiştir.
+Bu projede, Güneş Sistemi'ndeki gezegenler için çeşitli fizik deneylerini hesaplayan konsol
+tabanlı bir C programı geliştirilmiştir. Program, kullanıcıdan alınan değerlere göre her
+gezegen için sonuçları ayrı ayrı hesaplamakta ve farklı yerçekimi ivmelerinin fiziksel
+sonuçlara etkisini göstermektedir
+
+1. GİRİŞ
+Fizik derslerinde teorik olarak öğrenilen birçok konu, farklı ortamlarda uygulandığında
+farklı sonuçlar verebilmektedir. Bu proje, bu farkı daha iyi gözlemleyebilmek amacıyla
+hazırlanmıştır. Program, Güneş Sistemi'ndeki gezegenlerin yerçekimi ivmelerini kullanarak
+çeşitli deneyleri simüle etmektedir.
+Program tamamen konsol tabanlı olarak çalışmakta olup, kullanıcıdan alınan değerlere göre
+anlık hesaplamalar yapmaktadır.
+
+2. PROGRAMIN GENEL YAPISI
+Program C programlama dili kullanılarak geliştirilmiştir. Gezegen isimleri ve yerçekimi
+ivmeleri diziler halinde tutulmuştur. Bu dizilere erişim sırasında pointer mantığı
+kullanılmıştır. Deneylerin her biri ayrı fonksiyonlar halinde yazılmıştır.
+Programın ana yapısı kullanıcıdan isim alınması ile başlamakta, ardından deney menüsü
+ekrana basılmaktadır. Kullanıcı menüden istediği deneyi seçerek işlemlerini
+gerçekleştirebilmektedir.
+
+3. DENEYLER
+3.1. Serbest Düşme Deneyi
+Bu deneyde, bir cismin serbest düşme hareketi incelenmiştir. Kullanıcıdan zaman bilgisi
+alınarak, her gezegen için alınan yol hesaplanmıştır. Yerçekimi ivmesinin farklı olması
+nedeniyle sonuçlar gezegenlere göre değişmektedir.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 1 ve Şekil 2'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.2. Yukarı Atış Deneyi
+Bu deneyde, yukarı doğru atılan bir cismin ulaşabileceği maksimum yükseklik
+hesaplanmıştır. Kullanıcıdan ilk hız değeri alınmış ve her gezegen için sonuçlar ayrı ayrı
+ekrana yazdırılmıştır.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 3 ve Şekil 4'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.3. Ağırlık Deneyi
+Bu deneyde, cismin ağırlığının gezegenlere göre nasıl değiştiği gösterilmiştir. Kullanıcıdan
+kütle bilgisi alınmış ve ağırlık hesaplamaları yapılmıştır.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 5 ve Şekil 6'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.4. Potansiyel Enerji Deneyi
+Bu deneyde kullanıcıdan gerekli fiziksel değerler alınmış ve her gezegen için sonuçlar
+hesaplanmıştır. Şekil 7 ve Şekil 8'de ilgili ekran çıktıları gösterilmektedir.
+
+3.5. Hidrostatik Basınç Deneyi
+Bu deneyde, sıvıların derinliğe bağlı olarak oluşturduğu basınç hesaplanmıştır. Yerçekimi
+ivmesinin bu basınca etkisi gözlemlenmiştir.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 9 ve Şekil 10'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.6. Arşimet Kuvveti Deneyi
+Bu deneyde, sıvı içinde bulunan cisimlere etki eden kaldırma kuvveti hesaplanmıştır.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 11 ve Şekil 12'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.7. Basit Sarkaç Deneyi
+Bu deneyde, basit sarkaç sisteminin periyodu hesaplanmıştır. İp uzunluğu ve yerçekimi
+ivmesi hesaba katılmıştır.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 13 ve Şekil 14'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.8. İp Gerilmesi Deneyi
+Bu deneyde, bir cisme etki eden ip gerilmesi hesaplanmıştır. Sonuçlar gezegenlere göre
+karşılaştırılmıştır.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 15 ve Şekil 16'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+3.9. Asansör Deneyi
+Bu deneyde, ivmeli bir asansörde hissedilen ağırlık hesaplanmıştır. Yukarı ve aşağı ivmeli
+durumlar ayrı ayrı incelenmiştir.
+Bu deney sırasında elde edilen konsol çıktıları Şekil 17 ve Şekil 18'de gösterilmektedir. Bu
+çıktılar, programın doğru şekilde çalıştığını kanıtlamaktadır.
+
+4. HATALI GİRİŞ KONTROLLERİ
+Programda kullanıcıdan alınan tüm sayısal değerler için negatif kontrolü yapılmıştır.
+Negatif girilen değerler mutlak değere çevrilerek hesaplamalara dahil edilmiştir. Ayrıca
+menü dışında yapılan seçimlerde kullanıcı uyarılmış ve yeniden seçim yapması istenmiştir.
+Bu durum Şekil 19'da gösterilmiştir.
+
+5. EK BİLGİLER
+Projede dizilere erişim sırasında pointer kullanımı tercih edilmiştir. Bu sayede dizi
+elemanlarına daha etkin erişim sağlanmıştır.
+Negatif değerlerin kontrolü için hem fonksiyon yapısı hem de ternary operatörü
+kullanılmıştır. Bu yapıların kullanıldığı kod parçaları raporda ekran görüntüsü olarak
+gösterilmiştir.
+
+6. DEĞERLENDİRME VE TARTIŞMA
+Deney sonuçları incelendiğinde, yerçekimi ivmesinin fiziksel büyüklükler üzerinde
+doğrudan etkili olduğu açıkça görülmektedir. Özellikle Jüpiter gibi yerçekimi ivmesi yüksek
+gezegenlerde hesaplanan değerlerin daha büyük olduğu gözlemlenmiştir.
+
+7. SONUÇ
+Bu proje sayesinde farklı gezegenlerde aynı fiziksel olayların nasıl farklı sonuçlar verdiği
+açık bir şekilde görülmüştür. Program beklenen tüm işlevleri başarıyla yerine
+getirmektedir.
+
+8. KAYNAKÇA
+Halliday, D., Resnick, R., Walker, J. (2014). Fundamentals of Physics.
+Deitel, P., Deitel, H. (2016). C How to Program.
 
