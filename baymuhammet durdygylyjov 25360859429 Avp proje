@@ -1,1 +1,230 @@
+------------------------------------------------------------
+ Proje Adı   : Gezegenler Arası Fizik Deney Simülasyonu
+    Bu program, Güneş Sistemi’ndeki 8 gezegen için
+    yerçekimi ivmesine bağlı fizik deneylerini
+    simüle eden menü tabanlı bir konsol uygulamasıdır.
+
+    Kullanıcıdan alınan değerlere göre;
+    - Serbest düşme
+    - Yukarı atış
+    - Ağırlık
+    - Potansiyel enerji
+    - Hidrostatik basınç
+    - Arşimet kuvveti
+    - Basit sarkaç
+    - İp gerilmesi
+    - Asansör deneyi
+
+    hesaplamaları yapılır ve sonuçlar
+    gezegenlere göre karşılaştırmalı olarak ekrana yazdırılır.
+
+ Kullanılan Konular :
+    - Fonksiyonlar
+    - Diziler
+    - Pointer (işaretçiler)
+    - Döngüler
+    - Menü tabanlı yapı
+    - math.h kütüphanesi
+
+ Amaç :
+    Fizik formüllerinin C programlama dili ile
+    uygulanmasını ve yerçekiminin etkisinin
+    anlaşılmasını sağlamak.
+
+===================================================
+===================================================
+
+#include <stdio.h>
+#include <math.h>
+
+#define PLANET_COUNT 8
+
+const char *planets[PLANET_COUNT] = {
+    "Mercury", "Venus", "Earth", "Mars",
+    "Jupiter", "Saturn", "Uranus", "Neptune"
+};
+
+double absVal(double x) {
+    if (x < 0)
+        return -x;
+    else
+        return x;
+}
+
+void freeFall(double *g) {
+    double t;
+    printf("Zamani giriniz (s): ");
+    scanf("%lf", &t);
+    t = absVal(t);
+
+    for (int i = 0; i < PLANET_COUNT; i++)
+        printf("%s -> Alinan yol = %.2f m\n", *(planets + i), 0.5 * (*(g + i)) * t * t);
+}
+
+void upwardThrow(double *g) {
+    double v0;
+    printf("Ilk hiz degerini giriniz (m/s): ");
+    scanf("%lf", &v0);
+    v0 = absVal(v0);
+
+    for (int i = 0; i < PLANET_COUNT; i++) {
+        double hmax = (v0 * v0) / (2 * (*(g + i)));
+        printf("%s -> Maksimum yukseklik = %.2f m\n", *(planets + i), hmax);
+    }
+}
+
+void weightExp(double *g) {
+    double m;
+    printf("Kutleyi giriniz (kg): ");
+    scanf("%lf", &m);
+    m = absVal(m);
+
+    for (int i = 0; i < PLANET_COUNT; i++)
+        printf("%s -> Agirlik = %.2f N\n", *(planets + i), m * (*(g + i)));
+}
+
+void potentialEnergy(double *g) {
+    double m,h;
+    printf("Kutleyi giriniz (kg): ");
+    scanf("%lf", &m);
+    printf("Yuksekligi giriniz (m): ");
+    scanf("%lf", &h);
+
+    m = absVal(m);
+    h = absVal(h);
+
+    for(int i=0;i<PLANET_COUNT;i++)
+        printf("%s -> Potansiyel Enerji = %.2f J\n", *(planets + i), m * (*(g + i)) * h);
+}
+
+void hydroPressure(double *g) {
+    double rho,h;
+    printf("Sivi yogunlugunu giriniz (kg/m^3): ");
+    scanf("%lf", &rho);
+    printf("Derinligi giriniz (m): ");
+    scanf("%lf", &h);
+
+    rho = absVal(rho);
+    h = absVal(h);
+
+    for(int i=0;i<PLANET_COUNT;i++)
+        printf("%s -> Basinc = %.2f Pa\n", *(planets + i), rho * (*(g + i)) * h);
+}
+
+void buoyantForce(double *g) {
+    double rho,V;
+    printf("Sivi yogunlugunu giriniz (kg/m^3): ");
+    scanf("%lf", &rho);
+    printf("Batan hacmi giriniz (m^3): ");
+    scanf("%lf", &V);
+
+    rho = absVal(rho);
+    V = absVal(V);
+
+    for(int i=0;i<PLANET_COUNT;i++)
+        printf("%s -> Kaldirma Kuvveti = %.2f N\n", *(planets + i), rho * (*(g + i)) * V);
+}
+
+void pendulum(double *g) {
+    double L;
+    printf("Ip uzunlugunu giriniz (m): ");
+    scanf("%lf", &L);
+    L = absVal(L);
+
+    for(int i=0;i<PLANET_COUNT;i++)
+        printf("%s -> Periyot = %.2f s\n", *(planets + i), 2*M_PI*sqrt(L/(*(g + i))));
+}
+
+void ropeTension(double *g) {
+    double m;
+    printf("Kutleyi giriniz (kg): ");
+    scanf("%lf", &m);
+    m = absVal(m);
+
+    for(int i=0;i<PLANET_COUNT;i++)
+        printf("%s -> Ip Gerilmesi = %.2f N\n", *(planets + i), m*(*(g+i)));
+}
+
+void elevator(double *g) {
+    double m,a;
+    int secim;
+    printf("Kutleyi giriniz (kg): ");
+    scanf("%lf", &m);
+    printf("Asansor ivmesini giriniz (m/s^2): ");
+    scanf("%lf", &a);
+    printf("1 - Yukari ivmeli | 2 - Asagi ivmeli: ");
+    scanf("%d",&secim);
+
+    m = absVal(m);
+    a = absVal(a);
+
+    for(int i=0;i<PLANET_COUNT;i++){
+        double N = (secim==1)? m*((*(g+i))+a) : m*((*(g+i))-a);
+        if(N<0) N=0;
+        printf("%s -> Hissedilen Agirlik = %.2f N\n", *(planets+i), N);
+    }
+}
+
+void menu() {
+    printf("\n***** Deney Tablosu *****\n");
+    printf("1 - Serbest Dusme deneyi\n");
+    printf("2 - Yukari Atis deneyi\n");
+    printf("3 - Agirlik deneyi\n");
+    printf("4 - Potansiyel Enerji deneyi\n");
+    printf("5 - Hidrostatik Basinc deneyi\n");
+    printf("6 - Arsimet Kuvveti deneyi\n");
+    printf("7 - Basit Sarkac deneyi\n");
+    printf("8 - Ip Gerilmesi deneyi\n");
+    printf("9 - Asansor deneyi\n");
+    printf("0 - Cikis (isleminizi bitirmek icin)\n");
+    printf("Seciminizi giriniz: ");
+}
+
+void printCompletionMessage() {
+    printf("\n--------------------------------------------------------\n");
+    printf("Isleminiz tamamlandi! Yeni bir islemi seciniz.\n");
+    printf("--------------------------------------------------------\n\n");
+}
+
+int main() {
+    double gravity[PLANET_COUNT] = {3.7,8.87,9.81,3.71,24.79,10.44,8.69,11.15};
+    char scientist[50];
+    int choice;
+
+    printf("Hos geldiniz! Isminiz nedir?: ");
+    scanf("%s", scientist);
+
+    do {
+        menu();
+        scanf("%d",&choice);
+
+        switch(choice){
+            case 1: freeFall(gravity); printCompletionMessage(); break;
+            case 2: upwardThrow(gravity); printCompletionMessage(); break;
+            case 3: weightExp(gravity); printCompletionMessage(); break;
+            case 4: potentialEnergy(gravity); printCompletionMessage(); break;
+            case 5: hydroPressure(gravity); printCompletionMessage(); break;
+            case 6: buoyantForce(gravity); printCompletionMessage(); break;
+            case 7: pendulum(gravity); printCompletionMessage(); break;
+            case 8: ropeTension(gravity); printCompletionMessage(); break;
+            case 9: elevator(gravity); printCompletionMessage(); break;
+            case 0: printf("Isleminiz icin tesekkurler!\n"); break;
+            default: printf("Yanlis secim! Lutfen tekrar deneyiniz.\n\n");
+        }
+
+    } while(choice != 0);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
