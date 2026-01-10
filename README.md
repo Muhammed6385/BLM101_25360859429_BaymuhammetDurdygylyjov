@@ -32,7 +32,7 @@ f-string → Python değişkenlerini HTML kodunun içine eklemek için kullanıl
 
 -----------------------------------------------------------------------------------
 
-Programın Çalışma Mantığı
+Programın Çalışma Mantığı:
 
 Program çalıştığında ilk olarak kullanıcıdan adı, aldığı dersler ve kısa biyografisi istenir.
 Dersler virgül ile ayrılmış şekilde alındığı için split(",") komutu kullanılarak dersler liste haline getirilir.
