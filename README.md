@@ -40,7 +40,7 @@ Dersler virgül ile ayrılmış şekilde alındığı için split(",") komutu ku
 Daha sonra HTML sayfası için bir şablon hazırlanır.
 Bu şablonun içine kullanıcının adı ve biyografisi eklenir.
 
-Dersler listesi for döngüsü kullanılarak gezilir ve her ders <li> etiketi ile HTML listesine eklenir.
+Dersler listesi for döngüsü kullanılarak gezilir ve her ders.(<li>)etiketi ile HTML listesine eklenir.
 Bu sayede dersler alt alta düzgün bir şekilde gösterilir.
 
 Son olarak hazırlanan HTML içeriği index.html adlı dosyaya yazılır.
