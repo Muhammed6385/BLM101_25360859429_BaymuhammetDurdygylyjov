@@ -8,7 +8,7 @@ Soyad: Durdygylyjov
 
 Proje konusu: Aglar, Internet ve HTML 
 
-Youtube link :
+Youtube link :https://youtu.be/QxyoOsF2F4E
 
 Proje açıklama:
 Bu projenin amacı, Python kullanarak kullanıcıdan alınan bilgilerle basit bir kişisel web sayfası oluşturmaktır.
